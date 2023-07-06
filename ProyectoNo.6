@@ -1,0 +1,257 @@
+#include <iostream>
+#include <cstdlib>
+#include <conio.h>
+#ifdef _WIN32
+#include <windows.h>
+#endif
+#include <ctime>
+using namespace std;
+
+void limpiar_pantalla()
+{
+  #ifdef _WIN32
+    system("cls");
+  #else
+    system("clear");
+  #endif
+}
+
+//Seleccion 1 del menu 
+void cadena() {
+	int salida;
+	do {
+	
+    string texto, texto1;
+    cout << "Ingresa un texto: ";
+    cin >> texto;
+    limpiar_pantalla();
+    cout << "Ingresa otro texto: ";
+    cin >> texto1;
+    limpiar_pantalla();
+    int result = texto.compare(texto1);
+    if (result == 0) {
+        cout << "Texto 1: " <<  texto << " / " << "Texto 2: " <<  texto1 << endl << endl << "Son iguales";
+    } else {
+        cout << "Texto 1: " <<  texto << " / " << "Texto 2: " <<  texto1 << endl << endl << "No son iguales";
+    } 
+    
+    cout << endl << endl;
+    cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+    cin >> salida;
+    limpiar_pantalla(); 
+    } while (salida != 0);
+}
+
+//Seleccion 2 del menu
+
+void menores(){
+	int salida;
+	do {
+		int x;
+		cout << "Ingresa un numero: ";
+		cin >> x; 
+		limpiar_pantalla();
+		cout << "Numeros menores a " << x << ":" << endl << endl;
+		for (int i = 0; i < x; i++){
+			cout << i << " ";
+		}
+		
+		cout << endl << endl;
+        cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+        cin >> salida;
+        limpiar_pantalla(); 
+	} while ( salida != 0);
+}
+
+// Seleccion 3 del menu
+
+void CalcularEdad() {
+	int salida;
+	do {
+	int Ano, Mes, Dia;
+	time_t Ahora = time(0);
+    tm* fechaActual = localtime(&Ahora);
+    int anoActual = fechaActual->tm_year + 1900;
+    int mesActual = fechaActual->tm_mon + 1;
+    int diaActual = fechaActual->tm_mday;
+	cout << "Ingresa el ano de nacimiento: ";
+    cin >> Ano;
+    cout << endl;
+    cout << "Ingresa el mes de nacimiento (En digitos): ";
+    cin >> Mes; 
+    cout << endl;
+    cout << "Ingresa el dia de nacimiento: ";
+    cin >> Dia;
+    limpiar_pantalla();
+    int edad = anoActual - Ano;
+    if (mesActual < Mes || (mesActual == Mes && Dia < Dia)) {
+        edad--;
+    }
+    cout << "La edad actual es: " << edad << " anos.";
+    cout << endl << endl;
+    cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+    cin >> salida;
+    limpiar_pantalla();
+    } while (salida != 0);
+	}
+
+// Seleccion 4 del menu
+
+void Conteo(){
+	int salida;
+	do{
+		string texto;
+		char caracter;
+		int contador = 0;
+		char c;
+		
+		cout << "Ingresa el texto: ";
+        cin >> texto;
+        limpiar_pantalla();
+        cout << "Ingresa la letra: ";
+        cin >> caracter;
+        limpiar_pantalla();
+		
+		for (int i = 0; i < texto.length(); i++) {
+            if (texto[i] == caracter) {
+                contador++;
+            }
+        }
+    
+    cout << "El caracter '" << caracter << "' aparece " << contador << " veces en el texto.";
+    cout << endl << endl;
+    cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+    cin >> salida;
+    limpiar_pantalla();
+    
+		} while (salida != 0);
+	}
+	
+
+//Seleccion 5 del menu
+
+void PorDos(){
+	int salida;
+	do{
+		int n[10];
+		for (int i=0;i<10; i++){
+			cout << "Ingresa un numero: ";
+			cin >> n[i];
+			limpiar_pantalla();
+			}
+			cout << "Los numeros multiplicados por dos son: " << endl << endl;
+			for (int i=0; i<10; i++){
+				cout << n[i] << " x 2 = " << n[i]*2 << endl << endl;
+				}
+				
+			cout << endl << endl;
+            cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+            cin >> salida;
+            limpiar_pantalla();
+		} while (salida != 0);
+	}
+
+// Seleccion 6 del menu
+
+
+void masgrande(){
+	int salida;
+	do{
+		string cadenamasgrande;
+		for (int i=0; i<5; i++){
+			string cadena;
+			cout << "Ingresa una cadena: ";
+			cin >> cadena;
+			limpiar_pantalla();
+			if (cadena.size() > cadenamasgrande.size()) {
+            cadenamasgrande = cadena;
+        } 
+			} 
+		cout << "La cadena mas grande es: " << cadenamasgrande << std::endl;
+		cout << endl << endl;
+        cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+        cin >> salida;
+        limpiar_pantalla();
+		} while (salida != 0);
+	
+	}
+	
+	
+// Seleccion 7 del menu 
+	
+void Figura(){
+	int salida;
+	do {
+		int filas = 5;
+
+        for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < i; j++) {
+            cout << " ";
+        }
+
+        for (int k = 0; k < (filas - i) * 2 - 1; k++) {
+            cout << "*";
+        }
+
+        cout << endl;
+    }
+		cout << endl << endl;
+        cout << "Para repetir digita cualquier numero / Para volver al menu principal digita 0: ";
+        cin >> salida;
+        limpiar_pantalla();
+	} while (salida!=0);
+		}
+
+
+int main() {
+    int selection;
+
+    do {
+        cout << "                             *************************" << endl;
+        cout << "                             *****    M E N U    *****" << endl;
+        cout << "                             *************************" << endl << endl << endl;
+        cout << "                             (1) Leer dos cadenas de codigo" << endl << endl;
+        cout << "                             (2) Mostrar numeros menores" << endl << endl;
+        cout << "                             (3) Calcular la edad de una persona" << endl << endl;
+        cout << "                             (4) Recibir un string y un dato" << endl << endl;
+        cout << "                             (5) Multiplicar 10 numeros por 2" << endl << endl;
+        cout << "                             (6) Leer 5 cadenas" << endl << endl;
+        cout << "                             (7) Figura" << endl << endl;        
+        cout << "                             (0) Salir" << endl << endl;
+        cout << "                             Ingrese el numero de la opcion deseada: ";
+
+        cin >> selection;
+        getch();
+        limpiar_pantalla();
+
+        switch (selection) {
+        case 1:
+            cadena();
+            break;
+        case 2:
+            menores();
+            break;
+        case 3:
+            CalcularEdad();
+            break;
+        case 4:
+            Conteo();
+            break;
+        case 5:
+            PorDos();
+            break;
+        case 6:
+            masgrande();
+            break;
+            
+        case 7:
+        	Figura();
+        	break;
+        }
+
+    } while (selection != 0);
+    
+    cout << "Para terminar el programa digita cualquier tecla: "; 
+
+    return 0;
+}
