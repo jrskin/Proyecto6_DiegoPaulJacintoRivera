@@ -157,11 +157,12 @@ void PorDos(){
 void masgrande(){
 	int salida;
 	do{
+                cin.get();
 		string cadenamasgrande;
 		for (int i=0; i<5; i++){
 			string cadena;
 			cout << "Ingresa una cadena: ";
-			cin >> cadena;
+			getline(cin, cadena);
 			limpiar_pantalla();
 			if (cadena.size() > cadenamasgrande.size()) {
             cadenamasgrande = cadena;
