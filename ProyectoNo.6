@@ -20,13 +20,13 @@ void limpiar_pantalla()
 void cadena() {
 	int salida;
 	do {
-	
+	cin.get();
     string texto, texto1;
     cout << "Ingresa un texto: ";
-    cin >> texto;
+    getline(cin, texto);
     limpiar_pantalla();
     cout << "Ingresa otro texto: ";
-    cin >> texto1;
+    getline(cin, texto1);
     limpiar_pantalla();
     int result = texto.compare(texto1);
     if (result == 0) {
@@ -100,13 +100,13 @@ void CalcularEdad() {
 void Conteo(){
 	int salida;
 	do{
+		cin.get();
 		string texto;
 		char caracter;
 		int contador = 0;
-		char c;
 		
 		cout << "Ingresa el texto: ";
-        cin >> texto;
+        getline(cin, texto);
         limpiar_pantalla();
         cout << "Ingresa la letra: ";
         cin >> caracter;
